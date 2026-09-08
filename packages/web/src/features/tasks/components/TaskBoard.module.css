@@ -1,0 +1,269 @@
+.board {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.boardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.boardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.25rem;
+}
+
+.boardMeta {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.addBtn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.addBtn:hover { background: #4338ca; }
+
+/* Filters */
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filterLabel {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.filterSelect {
+  font-size: 0.8125rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  color: #374151;
+  background: white;
+}
+
+/* Form */
+.form {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.input, .select {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #111827;
+  background: white;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79,70,229,0.15);
+}
+
+.textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #111827;
+  background: white;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.formRow {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.submitBtn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.submitBtn:hover { background: #4338ca; }
+
+/* Columns */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.column {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 0.875rem;
+  min-height: 200px;
+  border: 2px dashed transparent;
+  transition: border-color 0.15s;
+}
+
+.column.dropTarget {
+  border-color: #c7d2fe;
+}
+
+.colHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.colTitle {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: #374151;
+}
+
+.colCount {
+  background: #e5e7eb;
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  cursor: grab;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.15s;
+}
+
+.card:hover { box-shadow: 0 3px 8px rgba(0,0,0,0.12); }
+.card:active { cursor: grabbing; }
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.375rem;
+}
+
+.priorityDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.cardTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.4;
+}
+
+.cardDesc {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  margin: 0 0 0.5rem;
+  line-height: 1.4;
+}
+
+.cardMeta {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.categoryTag {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: #ede9fe;
+  color: #6d28d9;
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+}
+
+.dueDate {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.cardActions {
+  display: flex;
+  gap: 0.375rem;
+  margin-top: 0.375rem;
+}
+
+.actionBtn {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  padding: 0.25rem 0.625rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.actionBtn:hover { background: #e5e7eb; }
+
+.deleteBtn {
+  margin-left: auto;
+  color: #ef4444;
+}
+
+.deleteBtn:hover { background: #fee2e2; border-color: #fca5a5; }
+
+.emptyCol {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #9ca3af;
+  font-size: 0.8125rem;
+  border: 2px dashed #e5e7eb;
+  border-radius: 8px;
+}

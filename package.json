@@ -1,0 +1,20 @@
+{
+  "name": "dailyflow",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w packages/api\" \"npm run dev -w packages/web\"",
+    "build": "npm run build -w packages/api && npm run build -w packages/web",
+    "test": "npm run test -w packages/api && npm run test -w packages/web",
+    "type-check": "npm run type-check -w packages/api && npm run type-check -w packages/web",
+    "lint": "eslint packages --ext .ts,.tsx",
+    "docs:check": "node scripts/check-jsdoc.js"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.2"
+  }
+}

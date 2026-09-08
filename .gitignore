@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.js.map
+data/*.sqlite
+exports/*.json
+.env
+.DS_Store
+coverage/
