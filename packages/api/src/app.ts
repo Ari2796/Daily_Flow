@@ -1,6 +1,7 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import { exportRouter } from './modules/export/router';
+import { tasksRouter } from './modules/tasks/router';
 import { ApiResponse } from './types/shared';
 
 /**
@@ -26,8 +27,10 @@ export function createApp(): Application {
   // ── Export (Phase 5 — requires MCP filesystem configuration) ──────────────
   app.use('/api/v1', exportRouter);
 
+  // ── Tasks ──────────────────────────────────────────────────────────────────
+  app.use('/api/v1/tasks', tasksRouter);
+
   // ── Module routers — uncomment after Phase 3 ──────────────────────────────
-  // app.use('/api/v1/tasks',     tasksRouter);
   // app.use('/api/v1/reminders', remindersRouter);
   // app.use('/api/v1/habits',    habitsRouter);
   // app.use('/api/v1/score',     scoreRouter);

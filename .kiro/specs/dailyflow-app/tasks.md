@@ -67,13 +67,13 @@ Implement the full DailyFlow productivity application as an npm monorepo. `packa
     - Test `authenticate` middleware: valid token passes; missing/expired token returns 401
     - _Requirements: 1.5, 1.6_
 
-- [ ] 4. Task Board module
-  - [ ] 4.1 Implement task types and repository
+- [x] 4. Task Board module
+  - [x] 4.1 Implement task types and repository
     - Create `packages/api/src/tasks/types.ts`: `TaskStatus`, `Task`, `CreateTaskInput`, `UpdateTaskStatusInput`, `TaskBoard` interfaces
     - Create `packages/api/src/tasks/repository.ts`: `createTask(userId, input)`, `getTaskById(userId, taskId)`, `updateTaskStatus(userId, taskId, status)`, `getTasksForUser(userId)`, `countTasksByStatus(userId)` — all with JSDoc
     - _Requirements: 2.1–2.7, 3.1–3.7, 4.1–4.5_
 
-  - [ ] 4.2 Implement TaskService
+  - [x] 4.2 Implement TaskService
     - Create `packages/api/src/tasks/service.ts`: `createTask(userId, input)`, `getTask(userId, taskId)`, `updateTaskStatus(userId, taskId, status)`, `getBoardForUser(userId)`, `getCompletionRate(userId)` — all with JSDoc
     - `getBoardForUser` always returns all three columns (`Todo`, `In_Progress`, `Done`) even when empty (Req 4.3, 4.4)
     - `getCompletionRate` rounds to 4 decimal places; returns 0 when no tasks (Req 14.2)
@@ -81,7 +81,7 @@ Implement the full DailyFlow productivity application as an npm monorepo. `packa
     - Zod schema for `UpdateTaskStatusInput` (status must be one of the three valid values)
     - _Requirements: 2.1–2.7, 3.1–3.7, 4.1–4.5, 14.1–14.5_
 
-  - [ ] 4.3 Implement task router
+  - [x] 4.3 Implement task router
     - Create `packages/api/src/tasks/router.ts`: `POST /tasks`, `GET /tasks/board`, `GET /tasks/:id`, `PATCH /tasks/:id/status`
     - All routes use `authenticate` middleware; all responses use `{ data, error }` envelope
     - Map validation errors to `400`, not-found to `404`, auth failures to `401`
@@ -285,13 +285,13 @@ Implement the full DailyFlow productivity application as an npm monorepo. `packa
     - Create `packages/web/src/components/PrivateRoute.tsx` that redirects unauthenticated users to `/login`
     - _Requirements: 1.1–1.6_
 
-- [ ] 14. Web frontend — Task Board UI
-  - [ ] 14.1 Implement task API hooks
+- [x] 14. Web frontend — Task Board UI
+  - [x] 14.1 Implement task API hooks
     - Create `packages/web/src/api/tasks.ts`: `fetchBoard`, `createTask`, `updateTaskStatus` API functions
     - Create `packages/web/src/hooks/useTasks.ts`: `useTaskBoard`, `useCreateTask`, `useUpdateTaskStatus` hooks using TanStack Query with appropriate `invalidateQueries` on mutations
     - _Requirements: 2.1–2.7, 3.1–3.7, 4.1–4.5_
 
-  - [ ] 14.2 Implement Kanban board components
+  - [x] 14.2 Implement Kanban board components
     - Create `packages/web/src/pages/TaskBoardPage.tsx` with CSS Modules layout for three columns
     - Create `packages/web/src/components/tasks/KanbanColumn.tsx`: column header + task card list
     - Create `packages/web/src/components/tasks/TaskCard.tsx`: displays title, description, status badge; has a status-change dropdown

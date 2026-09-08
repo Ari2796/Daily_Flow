@@ -30,8 +30,21 @@ export function initDb(): void {
       created_at TEXT NOT NULL DEFAULT (datetime('now'))
     );
 
-    -- Phase 3: Kiro will generate module tables here based on
-    -- .kiro/specs/dailyflow/design.md after you run the scaffold-module skill.
-    -- Expected tables: tasks, reminders, habits, habit_completions
+    CREATE TABLE IF NOT EXISTS tasks (
+      id          TEXT PRIMARY KEY,
+      user_id     TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      title       TEXT NOT NULL CHECK (length(title) BETWEEN 1 AND 255),
+      description TEXT CHECK (description IS NULL OR length(description) <= 2000),
+      status      TEXT NOT NULL DEFAULT 'Todo'
+                    CHECK (status IN ('Todo', 'In_Progress', 'Done')),
+      created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+      updated_at  TEXT NOT NULL DEFAULT (datetime('now'))
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_tasks_user_id
+      ON tasks(user_id);
+
+    CREATE INDEX IF NOT EXISTS idx_tasks_user_status
+      ON tasks(user_id, status);
   `);
 }
