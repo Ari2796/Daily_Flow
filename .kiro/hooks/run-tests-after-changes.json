@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Run Tests After Changes",
+      "trigger": "PostFileSave",
+      "action": {
+        "type": "command",
+        "command": "npm run test"
+      },
+      "description": "Automatically run tests when source files are modified.",
+      "matcher": "packages/(api|web)/src/.*\\.(ts|tsx)$",
+      "enabled": true
+    }
+  ]
+}

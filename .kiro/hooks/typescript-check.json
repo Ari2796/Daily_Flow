@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "TypeScript Check",
+      "trigger": "PostFileSave",
+      "action": {
+        "type": "command",
+        "command": "npm run type-check"
+      },
+      "description": "Automatically run TypeScript type checking when TypeScript files are saved.",
+      "matcher": "\\.(ts|tsx)$",
+      "enabled": true
+    }
+  ]
+}

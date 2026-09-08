@@ -1,5 +1,12 @@
 import { useState } from 'react';
+import { TasksProvider } from './features/tasks/tasksContext';
 import { TaskBoard } from './features/tasks/components/TaskBoard';
+import { RemindersProvider } from './features/reminders/remindersContext';
+import { ReminderList } from './features/reminders/components/ReminderList';
+import { HabitsProvider } from './features/habits/habitsContext';
+import { HabitList } from './features/habits/components/HabitList';
+import { ScoreProvider } from './features/score/scoreContext';
+import { ScorePanel } from './features/score/components/ScorePanel';
 import styles from './App.module.css';
 
 type ActiveTab = 'tasks' | 'reminders' | 'habits' | 'score';
@@ -37,27 +44,28 @@ export default function App(): JSX.Element {
       </header>
 
       <main className={styles.main}>
-        {activeTab === 'tasks' && <TaskBoard />}
+        {activeTab === 'tasks' && (
+          <TasksProvider>
+            <TaskBoard />
+          </TasksProvider>
+        )}
 
         {activeTab === 'reminders' && (
-          <div className={styles.placeholder}>
-            <p className={styles.placeholderTitle}>⏰ Reminder Engine</p>
-            <p>Phase 3 — run the <code>scaffold-module</code> skill with <code>MODULE_NAME=reminders</code></p>
-          </div>
+          <RemindersProvider>
+            <ReminderList />
+          </RemindersProvider>
         )}
 
         {activeTab === 'habits' && (
-          <div className={styles.placeholder}>
-            <p className={styles.placeholderTitle}>🔥 Habit Tracker</p>
-            <p>Phase 3 — run the <code>scaffold-module</code> skill with <code>MODULE_NAME=habits</code></p>
-          </div>
+          <HabitsProvider>
+            <HabitList />
+          </HabitsProvider>
         )}
 
         {activeTab === 'score' && (
-          <div className={styles.placeholder}>
-            <p className={styles.placeholderTitle}>📊 Productivity Score</p>
-            <p>Phase 3 — build this module manually using Kiro (it aggregates all three other modules)</p>
-          </div>
+          <ScoreProvider>
+            <ScorePanel />
+          </ScoreProvider>
         )}
       </main>
     </div>

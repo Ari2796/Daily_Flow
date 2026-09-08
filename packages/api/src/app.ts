@@ -2,6 +2,9 @@ import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import { exportRouter } from './modules/export/router';
 import { tasksRouter } from './modules/tasks/router';
+import { remindersRouter } from './modules/reminders/router';
+import { habitsRouter } from './modules/habits/router';
+import { scoreRouter } from './modules/score/router';
 import { ApiResponse } from './types/shared';
 
 /**
@@ -30,10 +33,10 @@ export function createApp(): Application {
   // ── Tasks ──────────────────────────────────────────────────────────────────
   app.use('/api/v1/tasks', tasksRouter);
 
-  // ── Module routers — uncomment after Phase 3 ──────────────────────────────
-  // app.use('/api/v1/reminders', remindersRouter);
-  // app.use('/api/v1/habits',    habitsRouter);
-  // app.use('/api/v1/score',     scoreRouter);
+  // ── Module routers ─────────────────────────────────────────────────────────
+  app.use('/api/v1/reminders', remindersRouter);
+  app.use('/api/v1/habits', habitsRouter);
+  app.use('/api/v1/score', scoreRouter);
 
   // ── 404 handler ───────────────────────────────────────────────────────────
   app.use((_req: Request, res: Response): void => {

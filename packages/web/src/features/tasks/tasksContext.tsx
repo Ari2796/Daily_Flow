@@ -56,18 +56,21 @@ function tasksReducer(state: TasksState, action: TasksAction): TasksState {
 
     case 'TASK_STATUS_UPDATED': {
       const updated = action.payload;
-      // Remove the task from all columns, then place it in the correct one.
       const removeFrom = (tasks: Task[]): Task[] =>
         tasks.filter((t) => t.id !== updated.id);
 
       return {
         ...state,
         board: {
-          Todo: removeFrom(state.board.Todo),
-          In_Progress: removeFrom(state.board.In_Progress),
-          Done: [...removeFrom(state.board.Done)].concat(
-            updated.status === 'Done' ? [updated] : []
-          ),
+          Todo: updated.status === 'Todo'
+            ? [...removeFrom(state.board.Todo), updated]
+            : removeFrom(state.board.Todo),
+          In_Progress: updated.status === 'In_Progress'
+            ? [...removeFrom(state.board.In_Progress), updated]
+            : removeFrom(state.board.In_Progress),
+          Done: updated.status === 'Done'
+            ? [...removeFrom(state.board.Done), updated]
+            : removeFrom(state.board.Done),
         },
       };
     }
